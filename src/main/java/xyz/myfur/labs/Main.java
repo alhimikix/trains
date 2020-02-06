@@ -30,6 +30,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            System.out.println("Введите название станции");
             String a = scanner.nextLine().trim();
             if (a.equals("/q")) break;
             if (stations.stream().anyMatch(x -> x.getName().equals(a))) {
@@ -38,8 +39,8 @@ public class Main {
             }
 
             TrainStation station = new TrainStation(a);
-
             stations.add(station);
+            System.out.println("Станция успешно добавлена");
         }
     }
 
@@ -47,9 +48,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            System.out.println("Введите id поезда");
             String a = scanner.nextLine().trim();
-            String b = scanner.nextLine().trim();
             if (a.equals("/q")) break;
+            System.out.println("Введите название станции");
+            String b = scanner.nextLine().trim();
             TrainStation ts = stations.stream().filter(x -> x.getName().equals(b)).findFirst().orElse(null);
             if (ts == null) {
                 System.out.println("Такой станции нет!");
@@ -63,8 +66,8 @@ public class Main {
 
 
             Train train = new Train(Integer.parseInt(a),ts, new Date(Long.parseLong(a)-(new Random()).nextInt(1000000000)-1000000000/2),new Place(PlaceType.PLATSKART,false),new Place(PlaceType.LUKS,true));
-
             trains.add(train);
+            System.out.println("Поезд успешно добавлен");
         }
     }
 }
