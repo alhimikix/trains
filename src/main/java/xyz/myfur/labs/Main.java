@@ -65,7 +65,7 @@ public class Main {
             }
 
 
-            Train train = new Train(Integer.parseInt(a),ts, new Date(Long.parseLong(a)-(new Random()).nextInt(1000000000)-1000000000/2),new Place(PlaceType.PLATSKART,false),new Place(PlaceType.LUKS,true));
+            Train train = new Train(Integer.parseInt(a),ts, new Date(System.currentTimeMillis()+1_000_000),new Place(PlaceType.PLATSKART,false),new Place(PlaceType.LUKS,true));
             trains.add(train);
             System.out.println("Поезд успешно добавлен");
         }
